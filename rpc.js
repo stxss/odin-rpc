@@ -24,6 +24,7 @@ function playRound(playerSelection, computerSelection) {
     
     // Setting the tie message to an empty string and attaching the Tie, Points and Winner messages to the body of the HTML
     divTieMessage.textContent = "";
+    divWinMessage.textContent = "";
     body.appendChild(divTieMessage);
     body.appendChild(divPoints);
     body.appendChild(divWinMessage);
