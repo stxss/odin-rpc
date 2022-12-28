@@ -30,10 +30,11 @@ function playRound(playerSelection, computerSelection) {
     body.appendChild(divWinMessage);
 
 
+
     // In the case of a tie, printing out the tie message
     if (playerSelection === computerSelection) {
         winner = "none";
-        divTieMessage.textContent = "A tie doesn't add up any points to any of the players!";
+        divComputer.textContent = "A tie doesn't add up any points to any of the players!";
     
     // The three following cases handle the computer's wins
     } else if (playerSelection === "rock" && computerSelection === "paper" ) {
@@ -110,10 +111,18 @@ const divWinMessage = document.createElement("div");
 
 // Small styling of the messages, might change later
 divPlayer.style.display = "flex";
-divPlayer.style.padding = "20px";
+divPlayer.style.paddingBottom = "20px";
+divPlayer.style.paddingTop = "20px";
 
 divComputer.style.display = "flex";
-divComputer.style.padding = "20px";
+divComputer.style.paddingTop = "20px";
+
+divTieMessage.style.display = "flex";
+divTieMessage.style.paddingBottom = "20px";
+
+divWinMessage.style.display = "flex";
+divWinMessage.style.paddingTop = "20px";
+divWinMessage.style.paddingBottom = "20px";
 
 
 
@@ -122,10 +131,9 @@ divComputer.style.padding = "20px";
 playRps.forEach((button) => {
     
     button.addEventListener("click", () => {
-        // console.log(`You played ${button.id}`); 
         playerSelection = `${button.id}`;
         computerSelection = getComputerChoice();
-        divComputer.textContent = `The computer chose ${computerSelection}`;
+        divComputer.textContent = `The computer chose ${computerSelection}.`;
         body.appendChild(divComputer);
         divPlayer.textContent = `${playRound(playerSelection, computerSelection)}`;
         
